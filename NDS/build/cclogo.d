@@ -1,0 +1,1 @@
+cclogo.o: cclogo.s

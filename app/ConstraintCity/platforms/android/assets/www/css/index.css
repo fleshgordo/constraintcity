@@ -1,0 +1,228 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+html {
+    overflow-x: hidden;
+     width: 100%;
+     height: 100%;
+}
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background: #000;
+    background-attachment:fixed;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    text-transform:uppercase;
+    width:100%;
+     color:#ccc;
+     overflow-x: hidden;
+     width: 100%;
+}
+
+img {
+    max-width: 100%;
+}
+.header {
+    position: relative;
+    width: 100%;
+}
+/* Portrait layout (default) */
+
+.app {
+    width: 100%;
+    height: 80%;
+}
+
+.shadow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 99;
+}
+button {
+    -moz-box-shadow: 0px 10px 21px -7px #787878;
+    -webkit-box-shadow: 0px 10px 21px -7px #787878;
+    box-shadow: 0px 10px 21px -7px #787878;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #e8e8e8), color-stop(1, #f2f2f2));
+    background:-moz-linear-gradient(top, #e8e8e8 5%, #f2f2f2 100%);
+    background:-webkit-linear-gradient(top, #e8e8e8 5%, #f2f2f2 100%);
+    background:-o-linear-gradient(top, #e8e8e8 5%, #f2f2f2 100%);
+    background:-ms-linear-gradient(top, #e8e8e8 5%, #f2f2f2 100%);
+    background:linear-gradient(to bottom, #e8e8e8 5%, #f2f2f2 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e8e8e8', endColorstr='#f2f2f2',GradientType=0);
+    background-color:#e8e8e8;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    display:inline-block;
+    cursor:pointer;
+    color:#030203;
+    font-family:Arial;
+    font-size:19px;
+    font-weight:bold;
+    padding:10px 32px;
+    text-decoration:none;
+}
+
+button.buttonMotorsActivate {
+    width: 95%;
+}
+button.buttonSmall {
+     -moz-border-radius:1px;
+    -webkit-border-radius:1px;
+    border-radius:1px;
+    display:inline-block;
+    cursor:pointer;
+    color:#030203;
+    font-size:8px;
+    padding:3px;
+}
+input.painFactor {
+    width: 15%;
+}
+div.bluetoothSettings {
+    position: absolute;
+    bottom: 0;
+    height: 30px;
+    width: 100%;
+}
+div.painSettings {
+    position: relative;
+    text-align: center;
+    width: 95%;
+    height: 20%;
+}
+.bluetoothStatus {
+   
+}
+
+div.fL {
+    float: left;
+}
+div.fR {
+    float:right;
+}
+.bluetoothActive {
+    background: green;    
+}
+.bluetoothInactive {
+    background: red;    
+}
+.settings {
+    width: 100%;
+    height: 20%;
+}
+.motorPositions {
+    padding-left: 5px;
+}
+.motorMultiplier {
+    float: left;
+    width: 25%;
+    font-size: 120%;
+padding-top: 15px;
+}
+.menuSettings {
+    z-index:100;
+    width: 100%;
+    position: absolute;
+    padding: 0.4em;
+    bottom: 0;
+    height: 50%;
+    display: none;
+    overflow: none;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+#SSID {
+    position: relative;
+    float: left;
+    width: 55%;
+    height:100%;
+}
+#WifiLevel {
+    position: relative;
+    float: left;
+    width: 15%;
+    height:100%;
+}
+#WifiChannel {
+    position: relative;
+    float: left;
+    width: 15%;
+    height:100%;
+}
+#WifiEncryption {
+    position: relative;
+    float: left;
+    width: 10%;
+    height:100%;
+}
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}

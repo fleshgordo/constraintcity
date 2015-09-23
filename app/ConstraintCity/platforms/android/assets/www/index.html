@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <title>Hello World</title>
+    </head>
+    <body>
+        <div class="header">
+            <img src="./img/ConstraintCityHeader.jpg" />
+        </div>
+        <div class="app">
+            <div id="SSID"><h3>SSID</h3><span class="SSIDList"></span></div>
+            <div id="WifiLevel"><h3>Level</h3><span class="WifiLevelList"></span></div>
+            <div id="WifiChannel"><h3>CH</h3><span class="WifiChannelList"></span></div>
+            <div id="WifiEncryption"><h3>ENC</h3><span class="WifiEncryptionList"></span></div>
+        </div>
+        <div class="menuSettings">
+            <button class="buttonMotorsActivate">Activate motors</button>
+            <div class="painSettings">
+                <div class="fL"><button class="buttonLessPain">LESS</button></div>
+                <div class="motorMultiplier">1</div>
+                <div class="fR"><button class="buttonMorePain">MORE</button></div>
+                
+                <!--  <input type="radio" name="painFactor" class="painFactor" value="1" checked>soft
+                <input type="radio" name="painFactor" class="painFactor" value="2">medium
+                <input type="radio" name="painFactor" class="painFactor" value="3">hard -->
+            </div>
+            <div class="motorSettings">
+                Motor1: <span id="motor1Pos" class="motorPositions">0</span> // 
+                Motor2: <span id="motor2Pos" class="motorPositions">0</span> //
+                Motor3: <span class="motorPositions" id="motor3Pos">0</span><br /><br />
+                <button class="buttonMotorsTest buttonSmall">Test motors</button>
+                <button class="buttonMotorsCheck buttonSmall">Check motors</button>
+            </div>
+            <div class="bluetoothSettings">
+                <div class="bluetoothStatus bluetoothInactive">Bluetooth status</button>
+                </div>
+            </div>
+            <script src="./bower_components/jquery/dist/jquery.js"></script>
+            <script type="text/javascript" src="cordova.js"></script>
+            <script type="text/javascript" src="js/index.js"></script>
+            <script type="text/javascript">
+            app.initialize();
+            </script>
+        </body>
+    </html>
