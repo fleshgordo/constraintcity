@@ -116,7 +116,6 @@ var app = {
 		$('.buttonMotorsCheck').on('click', function() {
 			bluetoothSerial.write('c', function() {
 				console.log('writing char c to check motors');
-
 			}, function() {
 				console.log('failed to write c to check motors');
 			});
@@ -129,11 +128,12 @@ var app = {
 	 * function, we must explicitly call 'app.receivedEvent(...);'
 	 */
 	onDeviceReady: function() {
-		// start the wifi scan in timed interval
-		app.WifiInterval = setInterval(function() {
-			WifiWizard.startScan(app.wifi.wifiScanStarted, app.wifi.wifiScanFailed);
-			WifiWizard.getScanResults(app.wifi.handleResults, app.wifi.handleResultsFailed);
-		}, app.settings.wifiInterval);
+		WifiWizard.setWifiEnabled(true, function() {
+			console.log('switched on wifi');
+			app.wifi.startWifiScanner();
+		}, function() {
+			console.log('could not switch on wifi');
+		});
 
 		app.initializeMenu();
 
@@ -182,7 +182,7 @@ var app = {
 				}, function() {
 					app.bluetooth.setBluetoothStatus(false)
 				});
-			}, 10000);
+			}, 30000);
 		},
 
 		/**
@@ -343,6 +343,16 @@ var app = {
 	/* ----------------------------------------------------------------------------------- */
 
 	wifi: {
+		/**
+		 * start the wifi scan interval
+		 */
+		startWifiScanner: function() {
+			// start the wifi scan in timed interval
+			app.WifiInterval = setInterval(function() {
+				WifiWizard.startScan(app.wifi.wifiScanStarted, app.wifi.wifiScanFailed);
+				WifiWizard.getScanResults(app.wifi.handleResults, app.wifi.handleResultsFailed);
+			}, app.settings.wifiInterval);
+		},
 
 		/**
 		 * Success function Wifi scan is being started
@@ -423,30 +433,4 @@ var app = {
 			console.log('### WIFI: scanning failed');
 		},
 	},
-
-	/* ----------------------------------------------------------------------------------- */
-	/* CONNECTION */
-	/* ----------------------------------------------------------------------------------- */
-
-	/**
-	 * Check the device's connection status
-	 * @return {string} - Connection state as string	 
-	 */
-	checkConnection: function() {
-		var networkState = navigator.connection.type;
-
-		var states = {};
-		states[Connection.UNKNOWN] = 'Unknown connection';
-		states[Connection.ETHERNET] = 'Ethernet connection';
-		states[Connection.WIFI] = 'WiFi connection';
-		states[Connection.CELL_2G] = 'Cell 2G connection';
-		states[Connection.CELL_3G] = 'Cell 3G connection';
-		states[Connection.CELL_4G] = 'Cell 4G connection';
-		states[Connection.CELL] = 'Cell generic connection';
-		states[Connection.NONE] = 'No network connection';
-
-		return 'Connection type: ' + states[networkState];
-	}
-
-
 };
